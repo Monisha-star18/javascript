@@ -36,4 +36,18 @@ buyHalwa()
     //when the result is not resolved then its a rejection and that causes error as the 
     // Promise rejects (fails), but  haven't handled the rejection with .catch() or try/catch. 
     // This causes Node.js to crash with an UnhandledPromiseRejection
-    
+
+
+// also when the consol.log is not is set timeout :
+
+    //Time 0ms:  buyHalwa() is called
+    //          ↓
+    //Time 0ms:  waitInLine() called → Creates a Promise
+    //          ↓
+    //Time 0ms:  const wait = Promise { <pending> }  ← PENDING state
+    //          ↓
+    //Time 0ms:  console.log(wait)  ← Logs "Promise { <pending> }"
+    //          ↓
+    //Time 2000ms: setTimeout completes → resolve('buy halwa')
+    //          ↓
+    //Time 2000ms: Promise becomes FULFILLED (but nothing is using it!)
