@@ -20,11 +20,13 @@ function waitInLine()
     })
 }
 
-function buyHalwa ()
+async function buyHalwa ()
 {
     //display the promise 
-   const wait =  waitInLine() ;
-   setTimeout(()=>{ console.log(wait)},3000)
+   const wait = await waitInLine() ;
+   console.log(wait)
+//    setTimeout(()=>{ console.log(wait)},3000)
+
 }
 
 buyHalwa()
@@ -51,3 +53,7 @@ buyHalwa()
     //Time 2000ms: setTimeout completes → resolve('buy halwa')
     //          ↓
     //Time 2000ms: Promise becomes FULFILLED (but nothing is using it!)
+
+
+//to replace the settimeout we use the async and await 
+// await make the particular function to to wait and not to rush 
