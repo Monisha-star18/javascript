@@ -13,7 +13,7 @@ function waitInLine()
             }
             else
             {
-                reject('now halwa')
+                reject('no halwa')
             }
         } , 2000)
 
