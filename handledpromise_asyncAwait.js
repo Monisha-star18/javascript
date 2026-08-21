@@ -6,7 +6,7 @@ function waitInLine(){
             if(isHalwaThere)
             {
                 resolve('buy halwa')
-            }
+            } 
             else
             {
                 reject('no halwa left')
@@ -16,8 +16,16 @@ function waitInLine(){
 }
 
 async function buyHalwa(){
-    const wait = await waitInLine()
-    console.log(wait)
+    try
+    {
+        const wait = await waitInLine()
+        console.log(wait)
+    }
+    catch(error)
+    {
+        console.log(error)
+    }
+    
 }
 
 buyHalwa()
